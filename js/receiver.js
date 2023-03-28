@@ -31,7 +31,7 @@ castDebugLogger.loggerLevelByEvents = {
   'cast.framework.events.EventType.MEDIA_STATUS': cast.framework.LoggerLevel.DEBUG
 }
 
-ctx.addCustomMessageListener(CHANNEL,  customEvent => console.log(customEvent.data.msg));
+ctx.addCustomMessageListener(CHANNEL,  customEvent => castDebugLogger.error(LOG_TAG, customEvent.data.msg));
 
 // Set verbosity level for custom tags.
 castDebugLogger.loggerLevelByTags = {
