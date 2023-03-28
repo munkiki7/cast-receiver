@@ -1,5 +1,11 @@
+const CHANNEL = 'urn:x-cast:cast.unity.demo';
+
 const context = cast.framework.CastReceiverContext.getInstance();
 const playerManager = context.getPlayerManager();
+const options = new cast.framework.CastReceiverOptions();
+options.customNamespaces = {};
+options.customNamespaces[CHANNEL] = cast.framework.system.MessageType.STRING;
+options.useShakaForHls = true;
 
 //Media Sample API Values
 const SAMPLE_URL = "https://storage.googleapis.com/cpe-sample-media/content.json";
@@ -24,6 +30,8 @@ castDebugLogger.loggerLevelByEvents = {
   'cast.framework.events.category.CORE': cast.framework.LoggerLevel.INFO,
   'cast.framework.events.EventType.MEDIA_STATUS': cast.framework.LoggerLevel.DEBUG
 }
+
+ctx.addCustomMessageListener(CHANNEL,  customEvent => console.log(customEvent.data.msg));
 
 // Set verbosity level for custom tags.
 castDebugLogger.loggerLevelByTags = {
@@ -152,4 +160,4 @@ playerDataBinder.addEventListener(
     );
   });
 
-context.start();
+context.start(options);
