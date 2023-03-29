@@ -2,10 +2,6 @@ const CHANNEL = 'urn:x-cast:cast.unity.demo';
 
 const context = cast.framework.CastReceiverContext.getInstance();
 const playerManager = context.getPlayerManager();
-const options = new cast.framework.CastReceiverOptions();
-options.customNamespaces = {};
-options.customNamespaces[CHANNEL] = cast.framework.system.MessageType.STRING;
-options.useShakaForHls = true;
 
 //Media Sample API Values
 const SAMPLE_URL = "https://storage.googleapis.com/cpe-sample-media/content.json";
@@ -158,5 +154,5 @@ playerDataBinder.addEventListener(
     );
   });
 
-context.start(options);
 context.addCustomMessageListener(CHANNEL,  customEvent => castDebugLogger.error(LOG_TAG, customEvent.data.msg));
+context.start();
