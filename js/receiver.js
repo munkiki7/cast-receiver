@@ -154,5 +154,5 @@ playerDataBinder.addEventListener(
     );
   });
 
-context.addCustomMessageListener(CHANNEL,  customEvent => castDebugLogger.error(LOG_TAG, customEvent.data.msg));
+context.addCustomMessageListener(CHANNEL,  customEvent => castDebugLogger.error(LOG_TAG, customEvent.data));
 context.start();
