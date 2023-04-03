@@ -4,7 +4,6 @@ const context = cast.framework.CastReceiverContext.getInstance();
 const options = new cast.framework.CastReceiverOptions();
 options.customNamespaces = {};
 options.customNamespaces[CHANNEL] = cast.framework.system.MessageType.STRING;
-options.useShakaForHls = true;
 
 const playerManager = context.getPlayerManager();
 
