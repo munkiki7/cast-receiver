@@ -158,10 +158,9 @@ playerDataBinder.addEventListener(
     );
   });
 
-
-const ctx = context.start(options);
-
-ctx.addCustomMessageListener(CHANNEL,  customEvent => {
+context.addCustomMessageListener(CHANNEL,  customEvent => {
   castDebugLogger.info(LOG_TAG, 'Message received.');
   castDebugLogger.info(LOG_TAG, customEvent);
 });
+
+context.start(options);
