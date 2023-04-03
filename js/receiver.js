@@ -158,7 +158,9 @@ playerDataBinder.addEventListener(
     );
   });
 
-context.addCustomMessageListener(CHANNEL,  function(customEvent) {
+
+const ctx = context.start(options);
+
+ctx.addCustomMessageListener(CHANNEL,  function(customEvent) {
   alert(customEvent);
 });
-context.start(options);
