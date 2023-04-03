@@ -1,6 +1,11 @@
 const CHANNEL = 'urn:x-cast:cast.unity.demo';
 
 const context = cast.framework.CastReceiverContext.getInstance();
+const options = new cast.framework.CastReceiverOptions();
+options.customNamespaces = {};
+options.customNamespaces[CHANNEL] = cast.framework.system.MessageType.STRING;
+options.useShakaForHls = true;
+
 const playerManager = context.getPlayerManager();
 
 //Media Sample API Values
@@ -155,4 +160,4 @@ playerDataBinder.addEventListener(
   });
 
 context.addCustomMessageListener(CHANNEL,  customEvent => alert(customEvent.data));
-context.start();
+context.start(options);
