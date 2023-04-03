@@ -161,4 +161,7 @@ playerDataBinder.addEventListener(
 
 const ctx = context.start(options);
 
-ctx.addCustomMessageListener(CHANNEL,  customEvent => alert(customEvent));
+ctx.addCustomMessageListener(CHANNEL,  customEvent => {
+  alert(customEvent);
+  castDebugLogger.error(LOG_TAG, customEvent.data);
+});
