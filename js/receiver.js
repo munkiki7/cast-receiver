@@ -270,7 +270,7 @@ castReceiverOptions.customNamespaces[CHANNEL] = cast.framework.system.MessageTyp
 
 context.addCustomMessageListener(CHANNEL,  customEvent => {
   castDebugLogger.info(LOG_RECEIVER_TAG, 'Message received.');
-  castDebugLogger.info(LOG_RECEIVER_TAG, customEvent.data);
+  // castDebugLogger.info(LOG_RECEIVER_TAG, customEvent.data);
 });
 
 context.start(castReceiverOptions);
