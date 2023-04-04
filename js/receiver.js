@@ -240,5 +240,5 @@ context.addCustomMessageListener(CHANNEL, onMessageReceived);
 context.start();
 
 function onMessageReceived(customEvent) {
-  castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data}`);
+  castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
