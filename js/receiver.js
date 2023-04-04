@@ -2,7 +2,7 @@ const CHANNEL = 'urn:x-cast:cast.unity.demo';
 
 const context = cast.framework.CastReceiverContext.getInstance();
 const options = new cast.framework.CastReceiverOptions();
-options.customNamespaces = { CHANNEL: cast.framework.system.MessageType.STRING };
+options.customNamespaces = { 'urn:x-cast:cast.unity.demo': 'STRING' };
 
 const playerManager = context.getPlayerManager();
 
