@@ -268,7 +268,7 @@ castReceiverOptions.customNamespaces[CHANNEL] = cast.framework.system.MessageTyp
  */
 // castReceiverOptions.queue = new CastQueue();
 
-context.addCustomMessageListener(CHANNEL, onMessageReceived);
+//context.addCustomMessageListener(CHANNEL, onMessageReceived);
 
 context.start(castReceiverOptions);
 
