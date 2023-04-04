@@ -233,44 +233,11 @@ controls.assignButton(
   cast.framework.ui.ControlsButton.QUEUE_NEXT
 );
 
-
 const CHANNEL = 'urn:x-cast:cast.unity.demo';
-/*
- * Configure the CastReceiverOptions.
- */
-const castReceiverOptions = new cast.framework.CastReceiverOptions();
 
-/*
- * Set the player configuration.
- */
-const playbackConfig = new cast.framework.PlaybackConfig();
-playbackConfig.autoResumeDuration = 5;
-castReceiverOptions.playbackConfig = playbackConfig;
-castDebugLogger.info(LOG_RECEIVER_TAG,
-  `autoResumeDuration set to: ${playbackConfig.autoResumeDuration}`);
+context.addCustomMessageListener(CHANNEL, onMessageReceived);
 
-/* 
- * Set the SupportedMediaCommands.
- */
-castReceiverOptions.supportedCommands =
-  cast.framework.messages.Command.ALL_BASIC_MEDIA |
-  cast.framework.messages.Command.QUEUE_PREV |
-  cast.framework.messages.Command.QUEUE_NEXT |
-  cast.framework.messages.Command.STREAM_TRANSFER;
-
-castReceiverOptions.customNamespaces = Object.assign({});
-castReceiverOptions.customNamespaces[CHANNEL] = cast.framework.system.MessageType.STRING;
-
-/*
- * Optionally enable a custom queue implementation. Custom queues allow the
- * receiver app to manage and add content to the playback queue. Uncomment the
- * line below to enable the queue.
- */
-// castReceiverOptions.queue = new CastQueue();
-
-//context.addCustomMessageListener(CHANNEL, onMessageReceived);
-
-context.start(castReceiverOptions);
+context.start();
 
 function onMessageReceived(customEvent) {
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data}`);
