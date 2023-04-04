@@ -237,7 +237,11 @@ const CHANNEL = 'urn:x-cast:cast.unity.demo';
 
 context.addCustomMessageListener(CHANNEL, onMessageReceived);
 
-context.start();
+const castReceiverOptions = new cast.framework.CastReceiverOptions();
+castReceiverOptions.customNamespaces = Object.assign({});
+castReceiverOptions.customNamespaces[CHANNEL] = cast.framework.system.MessageType.STRING;
+
+context.start(castReceiverOptions);
 
 function onMessageReceived(customEvent) {
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data}`);
