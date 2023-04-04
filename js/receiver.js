@@ -2,8 +2,7 @@ const CHANNEL = 'urn:x-cast:cast.unity.demo';
 
 const context = cast.framework.CastReceiverContext.getInstance();
 const options = new cast.framework.CastReceiverOptions();
-options.customNamespaces = Object.assign({});
-options.customNamespaces[CHANNEL] = cast.framework.system.MessageType.STRING;
+options.customNamespaces = { CHANNEL: cast.framework.system.MessageType.STRING };
 
 const playerManager = context.getPlayerManager();
 
@@ -163,6 +162,6 @@ const ctx = context.start(options);
 castDebugLogger.info(LOG_TAG, 'Adding custom message receiver.');
 ctx.addCustomMessageListener(CHANNEL,  function(customEvent) {
   castDebugLogger.info(LOG_TAG, 'Message received.');
-  castDebugLogger.info(LOG_TAG, customEvent);
+  castDebugLogger.info(LOG_TAG, customEvent.data);
 });
 castDebugLogger.info(LOG_TAG, 'Added custom message receiver.');
