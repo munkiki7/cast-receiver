@@ -40,7 +40,7 @@ cast-media-player {
 /* ------------------------------------------------- */
 /* Sample Overlay Text                               */
 /* ------------------------------------------------- */
-boi-text {
+cast-media-player::after {
   content: "SAMPLE";
   position: absolute;
   left: 0;
