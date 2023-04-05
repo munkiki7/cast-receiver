@@ -240,5 +240,6 @@ context.addCustomMessageListener(CHANNEL, onMessageReceived);
 context.start();
 
 function onMessageReceived(customEvent) {
+  document.getElementById('cast-player').content = `${customEvent.data.message}`;
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
