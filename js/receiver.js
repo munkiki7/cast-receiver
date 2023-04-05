@@ -54,18 +54,18 @@ const LOG_RECEIVER_TAG = 'Receiver';
  * top left corner and show debug overlay.
  */
  context.addEventListener(cast.framework.system.EventType.READY, () => {
-  if (!castDebugLogger.debugOverlayElement_) {
-    /**
-     *  Enable debug logger and show a 'DEBUG MODE' tag at
-     *  top left corner.
-     */
-      castDebugLogger.setEnabled(true);
+  // if (!castDebugLogger.debugOverlayElement_) {
+  //   /**
+  //    *  Enable debug logger and show a 'DEBUG MODE' tag at
+  //    *  top left corner.
+  //    */
+  //     castDebugLogger.setEnabled(true);
 
-    /**
-     * Show debug overlay.
-     */
-      castDebugLogger.showDebugLogs(true);
-  }
+  //   /**
+  //    * Show debug overlay.
+  //    */
+  //     castDebugLogger.showDebugLogs(true);
+  // }
 });
 
 /*
